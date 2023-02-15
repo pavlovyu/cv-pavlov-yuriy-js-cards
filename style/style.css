@@ -1,0 +1,375 @@
+/*all style*/
+:root {
+  --border-a: 1px solid #22c1c3;
+  --color-fontA: #22c1c3;
+  --color-fontB: #c69500;
+  --color-fontC: #c00;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(34,193,195);
+  background: linear-gradient(197deg, rgba(34,193,195,1) 3%, rgba(248,253,45,1) 97%);
+  background-size: 1000%;
+  animation: gradient 5s infinite linear;
+}
+
+@keyframes gradient {
+  0%{
+    background-position: 100% 0;
+  }
+
+  50%{
+    background-position: 0 100%;
+  }
+
+  100%{
+    background-position: 100% 0;
+  }
+}
+
+.wrapper {
+  height: calc(100vh - 2rem);
+  margin: 1rem;
+  display: grid;
+  grid-template: 1.5fr 5fr 5fr/ 25rem 5fr 5fr;
+  grid-template-areas:
+    "head  head head"
+    "aside main main"
+    "aside main main";
+  grid-gap: 1rem;
+}
+
+.header,
+.aside,
+.main {
+  border: var(--border-a);
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  box-shadow:  5px 5px 9px #afafaf,
+  -5px -5px 9px #ffffff;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.header {
+  grid-area: head;
+}
+
+.aside {
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  grid-area: aside;
+}
+
+.main {
+  position: relative;
+  grid-area: main;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.btn {
+  user-select: none;
+  outline: none;
+  margin: 0.5rem 0;
+  width: 5rem;
+  height: 2rem;
+  cursor: pointer;
+  border: var(--border-a);
+  border-radius: 5px;
+  background: #e0e0e0;
+  box-shadow:  5px 5px 9px #afafaf,
+  -5px -5px 9px #ffffff;
+}
+
+.btn:hover {
+  background: #fff;
+}
+
+.btn:active {
+  box-shadow:  2px 2px 6px #afafaf,
+  -2px -2px 6px #ffffff;
+}
+/*end*/
+
+/******************************************** drag-and-drop style *****************************************************/
+.card-main,
+.card-aside {
+  border: var(--border-a);
+  background-color: #b4deb6;
+  padding: 5px;
+}
+
+.mn-close{
+padding-bottom: 0.5rem;
+}
+
+.card-main {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+  position: absolute;
+  width: 26rem;
+  min-height: 15rem;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 5px;
+  background: #e0e0e0;
+  box-shadow:  5px 5px 9px #afafaf,
+  -5px -5px 9px #ffffff;
+}
+
+.card-main-wrp,
+.card-aside-wrp{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/*хедер карти main*/
+.card-main-wrp:first-child{
+  padding-right: 0.5rem;
+  font-weight: 700;
+  color: var(--color-fontA);
+  border-bottom: var(--border-a);
+}
+/*Лівий стовпчик карти main*/
+.card-main-wrp span:nth-child(1){
+  padding: 0.5rem 1rem 0.5rem 0;
+  width: 12rem;
+  text-align: left;
+}
+/*Правий стовпчик карти main*/
+.card-main-wrp span:nth-child(2){
+  width: 10rem;
+  text-align: left;
+}
+
+.aside-wrp-padding--boot{
+  padding: 0.5rem;
+  font-weight: 700;
+  color: var(--color-fontA);
+}
+
+.card-aside {
+  width: 16rem;
+  cursor: pointer;
+  height: 7.5rem;
+  margin: 0.2rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background: #e0e0e0;
+  box-shadow:  5px 5px 9px #afafaf,
+  -5px -5px 9px #ffffff;
+}
+/*end*/
+
+/*header style*/
+nav,
+ul {
+  height: 100%;
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 9rem;
+  height: 3rem;
+  padding: 0 1rem;
+  margin: 0 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo {
+  clip-path: polygon(0 35%, 35% 35%, 35% 0%, 65% 0%, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%);
+  background: var(--color-fontA);
+  margin-left: 3rem;
+  height: 5rem;
+  width: 5rem;
+  cursor: pointer;
+}
+
+.logo:hover {
+  background: var(--color-fontB);
+}
+/*end*/
+
+/*aside style*/
+.enter-form-div--margin,
+.form-div--margin {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.field-change {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-child--margin {
+  width: 15rem;
+  margin: 0.4rem 0;
+  border: var(--border-a);
+  padding: 0.5rem;
+  border-radius: 5px;
+  height: 2rem;
+  background: #e0e0e0;
+  box-shadow: inset 5px 5px 9px #afafaf,
+  inset -5px -5px 9px #ffffff;
+}
+
+#description {
+  height: 6rem;
+}
+
+aside form {
+  z-index: 1;
+  display: block;
+  width: 15rem;
+  margin-top: 1rem;
+}
+
+.result-search {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  margin-left: 0.95rem;
+  height: 46vh;
+  width: 95%;
+}
+
+.no-items {
+  margin-top: 1rem;
+}
+
+.remove{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+/*end*/
+
+/**************************************** modal window css ************************************************************/
+.form-div--col {
+  display: flex;
+  align-content: flex-end;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.p-check {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  transition: opacity 1000ms ease-in;
+  overflow-y: auto;
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+}
+
+.modal-content {
+  max-width: 42rem;
+  margin: 2rem auto;
+  position: relative;
+  min-height: 10rem;
+  top: calc(50vh - 15rem);
+  display: flex;
+  flex-direction: column;
+  border: var(--border-a);
+  box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background: #e0e0e0;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #eceeef;
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.close {
+  color: var(--color-fontA);
+  float: right;
+  font-family: sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close:hover{
+  color: var(--color-fontB);
+}
+
+.modal-body {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding: 1rem;
+  overflow: auto;
+}
+
+/**************************************** end modal window css ********************************************************/
+
+/****************************** модифікатори модального вікна помилок *************************************************/
+
+.modal-header--err {
+  background: var(--color-fontA);
+  height: 100%;
+  width: 100%;
+}
+
+.close--err {
+  color: var(--color-fontC);
+}
+
+.message {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+}
